@@ -7,3 +7,13 @@ before_install:
 
 script:
   - docker run marko/dockertest npm run test -- --coverage
+
+delpoy:
+  provider: aws_provider
+  region: aws_region
+  app: aws_app_name_autogenerate
+  env: aws_env_auto_generate
+  bucket_name: aws_bucket_name_auto_generate
+  bucket_pat: "aws_app_name_autogenerate"
+  on:
+    branch: master
