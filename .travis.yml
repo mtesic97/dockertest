@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t marko/dockertest -f Dockerfile.dev . 
+
+script:
+  - docker run marko/dockertest npm run test -- --coverage
